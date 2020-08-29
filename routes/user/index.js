@@ -7,12 +7,13 @@ const {
  userLogin,
  getAllUser,
  deleteUser,
+ updateUser,
 } = require('./controller');
 
 router.post('/', userRegistration);
-router.post('/userlogin', userLogin);
-router.get('/getalluser', verifyToken, getAllUser);
-router.delete('/deleteuser', verifyToken, deleteUser);
-
+router.post('/login', userLogin);
+router.get('/getall', verifyToken, getAllUser);
+router.delete('/delete', verifyToken, deleteUser);
+router.put('/update', verifyToken, updateUser);
 
 module.exports = router;

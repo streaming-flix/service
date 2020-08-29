@@ -81,6 +81,22 @@ module.exports = {
             res.send(error);
         }
     },
+    updateUser: async (req, res) => {
+        const id = req.params.id;
+        req.body.password = await hashPassword(req.body.password);
+        try {
+            const result = await User.findByIdAndUpdate(
+                { _id: id },
+                {
+                    ...req.body,
+                }
+            );
+
+            res.send({ message: 'Update profil user succes', data: result });
+        } catch (error) {
+            res.send(error);
+        }
+    },
 
 
 };

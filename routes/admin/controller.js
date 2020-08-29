@@ -81,6 +81,22 @@ module.exports = {
             res.send(error);
         }
     },
+    updateAdmin: async (req, res) => {
+        const id = req.params.id;
+        req.body.password = await hashPassword(req.body.password);
+        try {
+            const result = await Admin.findByIdAndUpdate(
+                { _id: id },
+                {
+                    ...req.body,
+                }
+            );
+
+            res.send({ message: 'Update profil admin succes', data: result });
+        } catch (error) {
+            res.send(error);
+        }
+    },
 
 
 };
