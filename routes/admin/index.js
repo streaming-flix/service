@@ -13,8 +13,8 @@ const {
 router.post('/', adminRegistration);
 router.post('/login', adminLogin);
 router.get('/getall', verifyToken, getAllAdmin);
-router.delete('/delete', verifyToken, deleteAdmin);
-router.put('/update', verifyToken, updateAdmin);
+router.delete('/delete/:id', verifyToken, deleteAdmin);
+router.put('/update/:id', verifyToken, updateAdmin);
 
 
 module.exports = router;

@@ -34,22 +34,31 @@ module.exports = {
 
     deleteMovie: async (req, res) => {
         const {id} = req.params;
+        try{
+            await Movie.findByIdAndDelete(id);
 
-        try {
-            const results = await Movie.deleteOne({
-                _id:id,
+            res.send({message: 'movie deleted'});
+        } catch (error) {
+            res.send(error);
+        }
+    },
+    getAllMovie : async (req, res) => {
+        try{
+            const result = await Movie.find().select('-password');
+            res.send({
+                result,
             });
         } catch (error) {
             res.send(error);
         }
     },
 
-    filterByName: async (req, res) => {
-        const trans = req.query.Movie;
+    findBySearch: async (req, res) => {
+        const {title} = req.query;
         try {
             const result = await Movie.find({
                 title: {
-                    $regex: mov,
+                    $regex: title,
                     $options: 'i',
                 },
             });

@@ -7,14 +7,16 @@ const {
     addMovie,
     updateMovie,
     deleteMovie,
-    filterByName,
+    getAllMovie,
+    findBySearch,
  
 } = require('./controller');
 
 router.post('/', verifyToken, addMovie);
 router.put('/update/:id', verifyToken, updateMovie);
 router.delete('/delete/:id', verifyToken, deleteMovie);
-router.get('/filterbyname', filterByName);
+router.get('/getall', getAllMovie);
+router.get('/findBySearch', findBySearch);
 
 
 
