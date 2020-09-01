@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+<body>
+    <div class="container md">
+        <div class="row">
+            <div class="col-sm">
+                <p class="h2 text-center mt-3">Streaming-Flix API</p>
+                <p class="h6 text-center mb-3">
+                    Dibawah ini adalah list endpoint yang bisa kalian akses
+                </p>
+                <table
+                    class="table table-hover table-bordered table-responsive-md"
+                >
+                    <thead class="bg-info text-white">
+                        <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Tujuan</th>
+                            <th scope="col">Tipe Endpoint</th>
+                            <th scope="col">Security</th>
+                            <th scope="col">Target Endpoint</th>
+                            <th scope="col">Method</th>
+                            <th scope="col">Route</th>
+                            <th scope="col">Req format example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('../partials/router-admin.ejs') %> <%-
+                        include('../partials/router-user.ejs') %> <%-
+                        include('../partials/router-movie.ejs') %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
