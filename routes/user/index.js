@@ -13,7 +13,7 @@ const {
 router.post('/', userRegistration);
 router.post('/login', userLogin);
 router.get('/getall', verifyToken, getAllUser);
-router.delete('/delete', verifyToken, deleteUser);
-router.put('/update', verifyToken, updateUser);
+router.delete('/delete/:id', verifyToken, deleteUser);
+router.put('/update/:id', verifyToken, updateUser);
 
 module.exports = router;
