@@ -23,6 +23,9 @@ sipnosis:{
 rating:{
     type: String,
 },
+genre:{
+    type: String,
+},
 director:{
     type: String,
 },

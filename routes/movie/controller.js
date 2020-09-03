@@ -15,19 +15,18 @@ module.exports = {
     },
 
     updateMovie: async (req, res) => {
-        const {_id:id} = req.params;
-        try{
-            const results = await Movie.findByIdAndUpdate(id, {
-                $set: {
+        const id = req.params.id;
+        
+        try {
+            const result = await Movie.findByIdAndUpdate(
+                { _id: id },
+                {
                     ...req.body,
-                },
-            });
+                }
+            );
 
-            res.send({
-                message:`update data success`,
-                results: results,
-            });
-        } catch (error){
+            res.send({ message: 'Update movie succes', data: result });
+        } catch (error) {
             res.send(error);
         }
     },

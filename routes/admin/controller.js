@@ -83,7 +83,7 @@ module.exports = {
     },
     updateAdmin: async (req, res) => {
         const id = req.params.id;
-        req.body.password = await hashPassword(req.body.password);
+        // req.body.password = await hashPassword(req.body.password);
         try {
             const result = await Admin.findByIdAndUpdate(
                 { _id: id },
@@ -97,6 +97,5 @@ module.exports = {
             res.send(error);
         }
     },
-
 
 };
