@@ -9,6 +9,7 @@ const {
     deleteMovie,
     getAllMovie,
     findBySearch,
+    getDetailMovie,
  
 } = require('./controller');
 
@@ -17,6 +18,7 @@ router.put('/update/:id', verifyToken, updateMovie);
 router.delete('/delete/:id', verifyToken, deleteMovie);
 router.get('/getall', getAllMovie);
 router.get('/findBySearch', findBySearch);
+router.get('/movieId/:id', getDetailMovie);
 
 
 

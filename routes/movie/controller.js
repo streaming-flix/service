@@ -66,6 +66,16 @@ module.exports = {
             res.send(error);
         }
     },
+    getDetailMovie: async (req, res) => {
+        const id = req.params.id;
+        try {
+            const result = await Movie.findById(id);
+
+            res.send(result);
+        } catch (error) {
+            res.send(error);
+        }
+    },
 
 
 };
